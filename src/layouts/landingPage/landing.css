@@ -1,0 +1,162 @@
+.landing-wrapper{
+    width: 100%;
+    height: 100vh;
+    transition: .4s all;
+}
+.bw{
+    background: white;
+}
+.bb{
+    background: black;
+}
+.cw{
+    color: white;
+}
+.cb{
+    color: black;
+}
+.fs{
+    justify-content: flex-start;
+}
+.fe{
+    justify-content: flex-end;
+}
+.bubble-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+#up{
+    position: absolute;
+    top: -3%;
+    left: -6%;
+    height: 500px;
+    width:500px;
+    border-radius: 50%;
+    background-image: linear-gradient(80deg,rgba(0, 221, 255, 0.6),rgba(199,10,114,.5));
+    filter: blur(80px);
+    animation: upDown1 9s linear infinite;
+}
+@keyframes upDown1 {
+    30%{
+        top: 1%;
+        left: 5%;
+    }
+    60%{
+        top: 4%;
+        left: 0;
+    }
+
+}
+#second{
+    position: absolute;
+    top: 30%;
+    right:-10%;
+    height: 350px;
+    width:500px;
+    border-radius: 50%;
+    background-image: linear-gradient(150deg,rgba(103, 255, 1, 0.6),rgba(255, 0, 0, 0.8));
+    filter: blur(80px);
+    animation: upDown2 15s linear infinite;
+}
+@keyframes upDown2 {
+    30%{
+        top: 1%;
+        right: 5%;
+        width: 190px;
+        height: 190px;
+    }
+    60%{
+        top: 4%;
+        right: 10%;
+    }
+
+}
+#third{
+    position: absolute;
+    top: 80%;
+    right:50%;
+    height: 400px;
+    width:500px;
+    border-radius: 50%;
+    background-image: linear-gradient(150deg,rgba(18, 1, 255, 0.6),rgba(255, 0, 0, 0.8));
+    filter: blur(80px);
+    animation: upDown3 9s linear infinite;
+}
+@keyframes upDown3 {
+    50%{
+        top:80%;
+        right: 40%;
+    }
+
+}
+.landing-page-container{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.landing-page-container h1{
+    font-size: 3.2rem;
+    word-spacing: 3px;
+    transition: .4s all;
+}
+.landing-page-container h1 span{
+    padding: 1rem 2rem;
+    border-radius: 15px;
+}
+.toggle-container{
+    width: 84px;
+    height: 40px;
+    border-radius: 2rem;
+    /* background: rgb(0, 0, 0); */
+    padding: .4rem .3rem;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    display: flex;
+    align-items: center;
+    transition: .4s all;
+}
+.toggle-button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+@media screen and (max-width:765px) {
+    #up{
+        width: 250px;
+        height: 250px;
+        top: -16%;
+        left: -20%;
+    }  qqqw
+    #second{
+        width:250px;
+        height:250px;
+    }
+    #third{
+        width: 190px;
+        height: 190px;
+        left: 10%;
+    }
+    .landing-page-container h1{
+        font-size: 22px;
+    }
+    .toggle-container{
+        width: 64px;
+        height: 28px;
+    }
+    .toggle-button{
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+    }
+}
+
