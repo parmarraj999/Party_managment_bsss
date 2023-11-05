@@ -8,3 +8,8 @@
     width: 100%;
     height: auto;
 }
+.para {
+    font-size: 17px ;
+    font-weight: 600;
+    color: grey;
+}
