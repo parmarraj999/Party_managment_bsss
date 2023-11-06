@@ -176,6 +176,7 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 15px;
+    text-decoration: none;
 }
 .organize-btn .Obtn{
     padding: 1rem 1.6rem;
@@ -195,7 +196,7 @@
     padding: 0 .7rem;
     font-size: 20px;
 }
-button{
+.button{
     padding: 1.5rem 2.2rem;
     border-radius: 2rem;
     font-size: 18px;
@@ -204,8 +205,9 @@ button{
     color: white;
     transition: .4s all;
     border: none;
+    text-decoration: none;
 }
-button:hover{
+.button:hover{
     background: rgb(0, 68, 135);
 }
 .para{
