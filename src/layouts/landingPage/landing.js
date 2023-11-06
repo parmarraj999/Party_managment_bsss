@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./landing.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 function Landing() {
 
@@ -21,13 +22,13 @@ function Landing() {
         <div>
           <h1>Logo</h1>
         </div>
-        <div>
+        <div style={{width:"90%",display:"flex",flexDirection:"column",alignItems:"center"}}>
           <h1 style={ theme ? {color:"black"} : {color:"white"}}>A new <span style={{background:"rgb(32, 15, 49)",color:"rgb(179, 102, 255)"}}>way</span> to <span style={{background:"rgb(14, 50, 20)",color:"rgb(0, 255, 38)"}}>enjoy</span></h1>
           <p className='para'>This is the plateform where you arrange your party with perfect analysis and systematic way</p>
         </div>
         <div className="btn-container" >
           <div className={theme ? "organize-btn bb":"organize-btn bw"}>
-            <a href=''>Organize Party</a>
+            <Link className='Obtn' to="">Organize Party</Link>
             <div>
             <FontAwesomeIcon icon={faArrowRight} style={theme ? {color:"white"} : {color:"black"}}/>
             </div>

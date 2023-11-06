@@ -134,7 +134,7 @@
 }
 .btn-container{
     display: flex;
-    gap: 2rem;
+    gap: 1.2rem;
     align-items: center;
 }
 @media screen and (max-width:765px) {
@@ -165,41 +165,34 @@
         height: 28px;
         border-radius: 50%;
     }
+    .btn-container{
+        flex-direction: column;
+    }
 }
 
 .organize-btn{
-    width: 200px;
-    height: 60px;
-    padding: .8rem .8rem;
-    /* background: white; */
-    border-radius: 15px;
     display: flex;
-    align-items: center;
+    padding: .5rem .5rem;
     justify-content: space-between;
-    gap: 1rem;
-}
-.organize-btn a{
-    width: 100%;
-    height: 100%;
-    background: red;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    border-radius: 15px;
+}
+.organize-btn .Obtn{
+    padding: 1rem 1.6rem;
+    background: red;
     border-radius: 10px;
+    font-size: 18px;
     text-decoration: none;
     color: white;
-    font-size: 18px;
     font-weight: 600;
-    border: 1px solid tomato;
     transition: .4s all;
 }
-.organize-btn a:hover{
-    background: white;
+.organize-btn .Obtn:hover{
+    background: transparent;
     color: red;
-    border: 1px solid tomato;
 }
 .organize-btn div{
-    width: 20%;
+    padding: 0 .7rem;
     font-size: 20px;
 }
 button{
@@ -210,7 +203,13 @@ button{
     background: rgb(0, 119, 237);
     color: white;
     transition: .4s all;
+    border: none;
 }
 button:hover{
     background: rgb(0, 68, 135);
+}
+.para{
+    font-size: 18px;
+    color: grey;
+    font-weight: 700;
 }
