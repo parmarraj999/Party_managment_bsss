@@ -13,3 +13,21 @@
     font-weight: 600;
     color: grey;
 }
+.bw{
+    background: white;
+}
+.bb{
+    background: black;
+}
+.cw{
+    color: white;
+}
+.cb{
+    color: black;
+}
+.fs{
+    justify-content: flex-start;
+}
+.fe{
+    justify-content: flex-end;
+}
