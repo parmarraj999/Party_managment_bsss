@@ -6,20 +6,9 @@
     justify-content: center;
     flex-direction: column;
     gap:1.2rem;
+    z-index: 5;
 }
 h1{
     color: white;
     font-size: 2.6rem;
-}
-.button{
-    padding: .8rem 3rem;
-    border: 2px solid #90e242;
-    background: #90e242;
-    border-radius: 15px;
-    font-size: 18px;
-    font-weight: 600;
-    transition: .3s all;
-}
-.button:hover{
-    background: white;
 }

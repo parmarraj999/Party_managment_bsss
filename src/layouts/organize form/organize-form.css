@@ -1,0 +1,107 @@
+.organize-form-container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 10fr 2fr;
+    padding: 1rem 0 0 0;
+}
+
+.organize-form {
+    width: 95%;
+    height: 85vh;
+    margin: 0 auto;
+    border-radius: 3rem;
+    border: 2px solid grey;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.organize-form h2 {
+    font-size: 32px;
+    color: #90e242;
+}
+
+.org-input-container{
+    width: 30%;
+}
+
+.input-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.input-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.input-wrapper h4{
+    font-size: 18px;
+    font-weight: 600;
+    color: grey;
+    text-transform: capitalize;
+}
+.org-input{
+    width: 100%;
+    height: 46px;
+    font-size: 18px;
+    border: 2px solid grey;
+    background: transparent;
+    border-radius: 15px;
+    outline: none;
+    padding: 0 1.2rem;
+    color: white;
+}
+.org-input:hover{
+    border: 2px solid #fff;
+}
+.close-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-circle {
+    background: linear-gradient(-25deg, tomato,#d3f);
+    width: 66px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    color: white;
+}
+
+@media screen and (max-width:765px) {
+    .organize-form-container {
+        height: calc(100vh - 7vh);
+        grid-template-rows: 10.5fr 1.5fr;
+        padding: 0;
+    }
+
+    .organize-form {
+        border-radius: 0 0 3rem 3rem;
+        border-top: 1px solid grey;
+        border-right: 1px solid grey;
+        border-bottom: 1px solid grey;
+        border-left: 1px solid grey;
+        height: 100%;
+    }
+    .org-input-container{
+        width: 80%;
+    }
+    .input-container{
+        gap:.8rem;
+    }
+}

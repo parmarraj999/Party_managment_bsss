@@ -4,9 +4,28 @@
     background: #90e242;
     border-radius: 15px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     transition: .3s all;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    gap: .8rem;
 }
 .button:hover{
-    background-color: white;
+    border:2px solid #d3f;
+    color: #d3f;
+    background: transparent;
+    cursor: pointer;
+}
+.secondary-btn{
+    background: rgba(255,255,255,.5);
+    border: 2px solid grey;
+    color: rgb(66, 66, 66);
+}
+.secondary-btn:hover{
+    background: transparent;
+    border: 2px solid grey;
+    color:grey
 }
