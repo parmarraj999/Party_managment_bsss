@@ -10,7 +10,7 @@
 }
 @media screen and (max-width:765px) {
     .app{
-        height: calc(100vh - 8vh);
+        height: calc(100vh - 6.5vh);
         overflow: hidden;
     }
 }

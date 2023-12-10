@@ -24,7 +24,7 @@ function Option() {
                  initial={{x:100,opacity:0}}
                  transition={{duration:.6,}}
                 >
-                    <Link to="/join-page" className='join-opt opt'>Join party</Link>
+                    <Link to="/join-form" className='join-opt opt'>Join party</Link>
                 </motion.div>
             </div>
             <Background />

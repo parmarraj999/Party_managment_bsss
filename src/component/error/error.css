@@ -1,0 +1,50 @@
+.form-error-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+.form-error-box{
+    width: 25%;
+    height: 20%;
+    background: grey;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 1.8rem;
+}
+.form-error-box h2{
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.form-error-box .close-box{
+    position: absolute;
+    top: 7%;
+    right: 5%;
+    background: rgb(167, 167, 167);
+    color: white;
+    padding: .8rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+@media screen and (max-width:765px) {
+    .form-error-container{
+        height: calc(100vh - 5vh);
+    }
+    .form-error-box{
+        width: 85%;
+    }
+}

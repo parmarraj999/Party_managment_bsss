@@ -19,26 +19,38 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 2rem;
 }
 
 .organize-form h2 {
     font-size: 32px;
     color: #90e242;
 }
-
+.organize-form .form-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+}
 .org-input-container{
     width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .input-container{
     width: 100%;
+    height: auto;
+    padding: 1.2rem 0;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
 .input-wrapper{
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: .5rem;
@@ -51,11 +63,11 @@
 }
 .org-input{
     width: 100%;
-    height: 46px;
+    height: 44px;
     font-size: 18px;
     border: 2px solid grey;
     background: transparent;
-    border-radius: 15px;
+    border-radius: 10px;
     outline: none;
     padding: 0 1.2rem;
     color: white;
@@ -70,7 +82,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .close-circle {
     background: linear-gradient(-25deg, tomato,#d3f);
     width: 66px;
@@ -83,6 +94,11 @@
     color: white;
 }
 
+.btn-container-form{
+    gap: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
 @media screen and (max-width:765px) {
     .organize-form-container {
         height: calc(100vh - 7vh);
@@ -99,9 +115,23 @@
         height: 100%;
     }
     .org-input-container{
-        width: 80%;
+        width: 85%;
+        padding: 0rem 0rem 1.2rem 0;
     }
     .input-container{
         gap:.8rem;
+    }
+    .btn-container-form{
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        gap: .8rem;
+    }
+    .close-circle{
+        width: 50px;
+        height: 50px;
+    }
+    .organize-form h2{
+        font-size: 24px;
     }
 }
