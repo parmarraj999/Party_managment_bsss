@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import "./join-form.css"
-import PrimaryButton, { NormalButton, SecondaryButton } from '../../component/button/button'
-import { addDoc, collection } from 'firebase/firestore'
+import { NormalButton, SecondaryButton } from '../../component/button/button'
+import { getDocs, doc, collection, QuerySnapshot } from 'firebase/firestore'
 import { db } from '../../module/firebase';
+import { useNavigate } from 'react-router-dom';
 
 function JoinForm() {
 
@@ -12,6 +13,8 @@ function JoinForm() {
   const [DOB, setDOB] = useState();
   const [address, setAddress] = useState();
   const [partyCode, setPartyCode] = useState();
+
+  const navigate = useNavigate();
 
   const handleFullName = (e) => {
     setFullName(e.target.value)
@@ -33,29 +36,24 @@ function JoinForm() {
   }
 
   const data = {
-    name : fullName,
-    email : email,
-    number : number,
-    DOB : DOB,
-    address : address,
-    partyCode : partyCode
+    name: fullName,
+    email: email,
+    number: number,
+    DOB: DOB,
+    address: address,
+    partyCode: partyCode
   }
 
-  
-  const addUser = () => {
-    
-    const party_code = `${partyCode}-user-info`
-    const collectionRef = collection(db,partyCode)
-    // const DataRef = await addDoc(collection(db, `${partyCode}-user-info`),data);
-    collectionRef.get().then((snapshot) => {
-      if (snapshot.empty) {
-        console.log("Collection does not exist");
-      } else {
-        console.log("Collection exists, adding data");
-      }
-    });
 
-    console.log("join successfull" , collectionRef.id)
+  const addUser = async() => {
+    // const docSnap = await getDocs(collection(db, "123rajparmar-info"))
+    // console.log(docSnap)
+    await db.collection("123rajparmar-info").get().then((querySnapshot)=>{
+      querySnapshot.forEach(element=>{
+        var data = element.data()
+        console.log(data )
+      })
+    })
   }
 
   return (

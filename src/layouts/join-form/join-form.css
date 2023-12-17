@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
 .join-form-container{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: #90e242 ;
     display: flex;
     flex-direction: column;
@@ -21,17 +21,20 @@
     height: 90%;
     margin: 0 auto;
     background: black;
-    border-radius: 3rem;
+    border-radius: 2rem 2rem 0 0;
     overflow: scroll;
     padding: 2rem;
 }
 .form-input-wrapper::-webkit-scrollbar{
     display: none;
 }
+.form-input-wrapper .row .input-wrapper .org-input{
+    height: 45px;
+    padding: .3rem 1rem;
+}
 .form-input-container{
     height: 100%;
     width: 100%;
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -39,10 +42,9 @@
     justify-content: center;
 }
 .row{
-    width: 500px;
-    /* border: 1px solid red; */
-    display: flex;
-    flex-direction: column;
+    width: 30%;
+    display: grid;
+    grid-template-rows: 1.7fr;
     gap: 1.5rem;
 }
 
@@ -52,5 +54,6 @@
     }
     .row{
         width: 100%;
+        gap: .8rem;
     }
 }
