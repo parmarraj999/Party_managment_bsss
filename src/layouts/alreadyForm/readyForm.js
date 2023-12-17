@@ -77,7 +77,7 @@ function Readyform({ setShowForm }) {
           initial={{ x: "-50px", opacity: 0 }}
           transition={{ duration: .8, ease: 'easeInOut', delay: 1.9 }}
         >
-          <h2>organizer Number</h2>
+          <h2>Unique Number</h2>
           <input type='text' value={number} onChange={handleNumber} />
         </motion.div>
         <div onClick={handleCheck}>
