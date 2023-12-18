@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Background from '../../component/background/backgound'
 import "./organize-form.css"
 import { Link, useNavigate } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { db } from '../../module/firebase';
 import { motion } from 'framer-motion'
 import FormError from '../../component/error/form-error'
 import Readyform from '../alreadyForm/readyForm'
+import { UniqueId } from '../../context/context'
 
 
 function OrganizeForm() {
@@ -24,7 +25,7 @@ function OrganizeForm() {
   const [partyTime, setPartyTime] = useState("");
   const [place, setPlace] = useState("");
   const [orgName, setOrgName] = useState("");
-  const [orgNumber, setOrgNumber] = useState("");
+  const [unique, setUnique] = useState("");
   const [city, setCity] = useState("");
   const [pin, setPin] = useState("");
   const [security_code, setSecurity_code] = useState("");
@@ -62,8 +63,8 @@ function OrganizeForm() {
     }
   }
 
-  const handleOrgNumber = (e) => {
-    setOrgNumber(e.target.value)
+  const handleUnique = (e) => {
+    setUnique(e.target.value)
   }
 
   const handleCity = (e) => {
@@ -86,16 +87,19 @@ function OrganizeForm() {
     setPrice(e.target.value)
   }
 
+  const uniqueIdvalue = useContext(UniqueId)
+
   const dataTwo = {
 
   }
 
   const handleClick = async () => {
     if (security_code !== "") {
-      const dataRef = await addDoc(collection(db, `${security_code}-info`), data);
+      const dataRef = await addDoc(collection(db, `${security_code}-info`,"data","data1"), data);
       // eslint-disable-next-line 
       const secondDataRef = await addDoc(collection(db, `${security_code}-user-info`), dataTwo);
       console.log("documnet added ", dataRef.id)
+      uniqueIdvalue.setUniqueId(dataRef.id)
       setTimeout(() => {
         naviagate("/dashboard")
       }, 2000);
@@ -114,7 +118,7 @@ function OrganizeForm() {
     party_time: partyTime,
     party_place: place,
     oragnizer_name: orgName,
-    join_number: orgNumber,
+    join_number: unique,
     city: city,
     pin_code: pin,
     securitycode: security_code,
@@ -221,7 +225,7 @@ function OrganizeForm() {
                   </motion.div>
                   <div className='input-wrapper '>
                     <h4>unique join Number</h4>
-                    <input type='number' className='org-input' placeholder="" name="organizer_number" value={orgNumber} onChange={handleOrgNumber} />
+                    <input type='number' className='org-input' placeholder="" name="organizer_number" value={unique} onChange={handleUnique} />
                   </div>
                   <div className='input-wrapper '>
                     <h4>city</h4>

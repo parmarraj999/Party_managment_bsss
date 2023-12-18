@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./join-form.css"
 import { NormalButton, SecondaryButton } from '../../component/button/button'
-import { getDocs, doc, collection, QuerySnapshot } from 'firebase/firestore'
+import { getDoc, doc, addDoc, collection } from 'firebase/firestore'
 import { db } from '../../module/firebase';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,6 +13,7 @@ function JoinForm() {
   const [DOB, setDOB] = useState();
   const [address, setAddress] = useState();
   const [partyCode, setPartyCode] = useState();
+  const [unique,setUnique] = useState();
 
   const navigate = useNavigate();
 
@@ -35,6 +36,10 @@ function JoinForm() {
     setPartyCode(e.target.value);
   }
 
+  const handleUnique = (e) => {
+    setUnique(e.target.value);
+  }
+
   const data = {
     name: fullName,
     email: email,
@@ -46,14 +51,16 @@ function JoinForm() {
 
 
   const addUser = async() => {
-    // const docSnap = await getDocs(collection(db, "123rajparmar-info"))
-    // console.log(docSnap)
-    await db.collection("123rajparmar-info").get().then((querySnapshot)=>{
-      querySnapshot.forEach(element=>{
-        var data = element.data()
-        console.log(data )
-      })
-    })
+    const docRef = doc(db,"123123-info","AQbnql9MN2MJEnwPnrVy")
+    const docSnap = await getDoc(docRef)
+    const securityDoc = docSnap._document.data.value.mapValue.fields.securitycode.stringValue
+    const uniqueNumberDoc = docSnap._document.data.value.mapValue.fields.join_number.stringValue
+    console.log(securityDoc)
+    if(data.partyCode === securityDoc){
+      const dataRef = await addDoc(collection(db, `${partyCode}-user-info`),data)
+      console.log("user added", dataRef)
+    }
+    
   }
 
   return (
@@ -84,6 +91,12 @@ function JoinForm() {
               <h4>Address</h4>
               <input type='text' className='org-input' placeholder="" value={address} onChange={handleAddress} />
             </div>
+
+            <div className='input-wrapper ' >
+              <h4>unique number</h4>
+              <input type='text' className='org-input' placeholder="" value={unique} onChange={handleUnique} />
+            </div>
+
             <div className='input-wrapper ' >
               <h4 style={{ color: "#d3f" }}>Party code</h4>
               <input style={{ border: "2px solid #d3f", color: "#d3f" }} type='text' className='org-input' placeholder="" value={partyCode} onChange={handlePartyCode} />
