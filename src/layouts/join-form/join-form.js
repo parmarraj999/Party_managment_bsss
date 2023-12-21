@@ -4,6 +4,7 @@ import { NormalButton, SecondaryButton } from '../../component/button/button'
 import { getDoc, doc, addDoc, collection } from 'firebase/firestore'
 import { db } from '../../module/firebase';
 import { useNavigate } from 'react-router-dom';
+import Payment from '../payment/payment';
 
 function JoinForm() {
 
@@ -14,6 +15,9 @@ function JoinForm() {
   const [address, setAddress] = useState();
   const [partyCode, setPartyCode] = useState();
   const [unique,setUnique] = useState();
+
+  const [amount,setAmount] = useState(343);
+  const [ showPay ,setShowPay ] = useState(false);
 
   const navigate = useNavigate();
 
@@ -50,21 +54,28 @@ function JoinForm() {
   }
 
 
-  const addUser = async() => {
-    const docRef = doc(db,"123123-info","AQbnql9MN2MJEnwPnrVy")
-    const docSnap = await getDoc(docRef)
-    const securityDoc = docSnap._document.data.value.mapValue.fields.securitycode.stringValue
-    const uniqueNumberDoc = docSnap._document.data.value.mapValue.fields.join_number.stringValue
-    console.log(securityDoc)
-    if(data.partyCode === securityDoc){
-      const dataRef = await addDoc(collection(db, `${partyCode}-user-info`),data)
-      console.log("user added", dataRef)
-    }
+  // const addUser = async() => {
+  //   const docRef = doc(db,"123123-info","AQbnql9MN2MJEnwPnrVy")
+  //   const docSnap = await getDoc(docRef)
+  //   const securityDoc = docSnap._document.data.value.mapValue.fields.securitycode.stringValue
+  //   //eslint-disable-next-line
+  //   const uniqueNumberDoc = docSnap._document.data.value.mapValue.fields.join_number.stringValue
+  //   console.log(securityDoc)
+  //   if(data.partyCode === securityDoc){
+  //     const dataRef = await addDoc(collection(db, `${partyCode}-user-info`),data)
+  //     console.log("user added", dataRef)
+
+  //   }
     
+  // }
+
+  const addUser =() =>{
+    setShowPay(true)
   }
 
   return (
     <div className='join-form-container'>
+      { showPay ? <Payment amount={amount}/> : "" }
       <div className='form-header'>
         <h2>Join Form</h2>
       </div>
@@ -105,7 +116,7 @@ function JoinForm() {
           <div style={{ display: "flex", gap: "1.2rem" }}>
             <SecondaryButton text="back" link="choice" />
             <div onClick={addUser}>
-              <NormalButton text="Join" arrow={true} />
+              <NormalButton text="Join" arrow={true}/>
             </div>
           </div>
         </div>

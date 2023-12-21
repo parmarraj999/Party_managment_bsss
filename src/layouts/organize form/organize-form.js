@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Background from '../../component/background/backgound'
 import "./organize-form.css"
 import { Link, useNavigate } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { db } from '../../module/firebase';
 import { motion } from 'framer-motion'
 import FormError from '../../component/error/form-error'
 import Readyform from '../alreadyForm/readyForm'
+import { UniqueId } from '../../context/context'
 
 
 function OrganizeForm() {
@@ -86,6 +87,8 @@ function OrganizeForm() {
     setPrice(e.target.value)
   }
 
+  const uniqueIdvalue = useContext(UniqueId)
+
   const dataTwo = {
 
   }
@@ -96,6 +99,7 @@ function OrganizeForm() {
       // eslint-disable-next-line 
       const secondDataRef = await addDoc(collection(db, `${security_code}-user-info`), dataTwo);
       console.log("documnet added ", dataRef.id)
+      uniqueIdvalue.setUniqueId(dataRef.id)
       setTimeout(() => {
         naviagate("/dashboard")
       }, 2000);
